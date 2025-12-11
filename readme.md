@@ -42,24 +42,23 @@ This work bridges **complex analysis → Fourier methods → PDE spectral theory
 
 ```
 .
+├── app.py                  # Streamlit Simulation App
+├── requirements.txt        # Python Dependencies
+│
 ├── notebook/
 │   └── complex_fourier_transform.ipynb
 │
 ├── report/
-│   ├── Complex_Fourier_Transform_Report.tex
-│   └── Complex_Fourier_Code_Overview.tex
+│   ├── Complex_Fourier_Transform_Report.pdf
+│   └── Complex_Fourier_Code_Overview.pdf
 │
-├── figures/
-│   ├── magnitude_heatmap.png
-│   ├── phase_heatmap.png
-│   └── surface_plot.png
+├── figures/                # (Generated output directory)
 │
 ├── animations/
 │   ├── imaginary_sweep.mp4
 │   └── real_sweep.mp4
 │
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 
 ---
@@ -70,39 +69,41 @@ Create a virtual environment (recommended) and install dependencies:
 
 ```bash
 pip install -r requirements.txt
+pip install streamlit plotly scipy
 ```
 
 ### Required Python Packages
 - `numpy`
 - `matplotlib`
 - `jupyter`
+- `streamlit`
+- `plotly`
+- `scipy`
 
 ---
 
-## ▶️ How to Run the Project
+## ▶️ How to Run the Simulation
 
-1. Launch Jupyter Notebook:
+This project includes an interactive **Streamlit App** to visualize the results dynamically.
+
+1. Open a terminal in the project folder.
+2. Run the app:
 ```bash
-jupyter notebook
+python -m streamlit run app.py
 ```
+3. The application will open in your browser (default: `http://localhost:8501`).
 
-2. Open:
-```
-notebook/complex_fourier_transform.ipynb
-```
-
-3. Run cells sequentially to:
-- Define test functions
-- Construct the complex frequency grid
-- Compute the complex Fourier transform
-- Generate heatmaps
-- Produce animated spectral sweeps
+### App Features
+- **Simulation Parameters**: Adjust the complex domain and integration limits.
+- **2D Heatmaps**: View Magnitude $|F(z)|$ and Phase $arg(F(z))$.
+- **3D Surface**: Explore the complex magnitude surface interactively.
+- **Animations**: Watch pre-rendered spectral deformation videos.
 
 ---
 
 ## 📊 Visual Outputs
 
-The notebook generates the following main results:
+The simulation generates:
 
 - ✅ Heatmap of **|F(z)|** over the complex plane
 - ✅ Heatmap of **arg(F(z))** (phase portrait)
@@ -111,27 +112,14 @@ The notebook generates the following main results:
   - Constant **Im(z)** (stability visualization)
   - Constant **Re(z)** (frequency deformation)
 
-These are saved in the `figures/` and `animations/` directories.
-
 ---
 
 ## 🧾 Report & Documentation
 
-Two LaTeX documents are included:
+Two research documents are included in the `report/` directory:
 
-- **Main Research Report:**
-  - `Complex_Fourier_Transform_Report.tex`
-  - Full theory, proofs, PDE links, and visual interpretation
-
-- **Code Overview:**
-  - `Complex_Fourier_Code_Overview.tex`
-  - Clean explanation of the numerical implementation
-
-To compile:
-```bash
-pdflatex Complex_Fourier_Transform_Report.tex
-pdflatex Complex_Fourier_Code_Overview.tex
-```
+- **Main Research Report (`Complex_Fourier_Transform_Report.pdf`):** Full theory, proofs, PDE links, and visual interpretation.
+- **Code Overview (`Complex_Fourier_Code_Overview.pdf`):** Explanation of the numerical implementation.
 
 ---
 
@@ -190,4 +178,3 @@ This project is intended for academic and research use. You are free to fork, mo
 ---
 
 If you use or build upon this work, a citation or acknowledgment would be appreciated.
-
